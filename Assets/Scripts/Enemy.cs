@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
     public float health;
     public float damage;
     public float flashTime;
+    public GameObject bloodEffect;
     private SpriteRenderer sr;
     private Color originalColor;
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public abstract class Enemy : MonoBehaviour
         Debug.Log("taking damage");
         health -= damage;
         FlashColor(flashTime);
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
     }
 
     void FlashColor(float time) {
