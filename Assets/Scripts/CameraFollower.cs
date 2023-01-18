@@ -7,6 +7,8 @@ public class CameraFollower : MonoBehaviour
     public float smoothing;
     public float offsetX;
     public float offsetY;
+    public Vector2 minPosition;
+    public Vector2 maxPosition;
     public Transform target;
     // Start is called before the first frame update
     void Start()
@@ -20,14 +22,15 @@ public class CameraFollower : MonoBehaviour
                 Vector3 targetPos = target.position;
                 targetPos.x += offsetX;
                 targetPos.y += offsetY;
+                targetPos.x = Mathf.Clamp(targetPos.x, minPosition.x, maxPosition.x);
+                targetPos.y = Mathf.Clamp(targetPos.y, minPosition.y, maxPosition.y);
                 transform.position = Vector3.Lerp(transform.position, targetPos, smoothing);
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void SetLimitPosition(Vector2 minPos, Vector2 maxPos) {
+        minPosition = minPos;
+        maxPosition = maxPos;
     }
 }

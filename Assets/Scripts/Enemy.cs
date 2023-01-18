@@ -42,4 +42,12 @@ public abstract class Enemy : MonoBehaviour
     {
         sr.color = originalColor;
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Trigger collider");
+        if(other.gameObject.CompareTag("Player")) {
+            Debug.Log("Hit an enemy");
+            other.GetComponent<PlayerHealth>().DamagePlayer(damage);
+        }
+    }
 }

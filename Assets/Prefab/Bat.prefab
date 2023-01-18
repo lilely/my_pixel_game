@@ -167,8 +167,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 84344475
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -701013535, guid: 175135a4d6b4b4f6fb0954c8ef697b80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
-  damage: 1
+  damage: 30
   flashTime: 0.2
   bloodEffect: {fileID: 9184473938110963886, guid: 213db5bbe402c444294f9622a0ffcb56, type: 3}
   leftDownPos: {fileID: 2831452314584963890}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904635266721890004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
