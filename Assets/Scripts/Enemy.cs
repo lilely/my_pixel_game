@@ -30,6 +30,7 @@ public abstract class Enemy : MonoBehaviour
         health -= damage;
         FlashColor(flashTime);
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        GlobalObject.cameraShake.Shake();
     }
 
     void FlashColor(float time) {
