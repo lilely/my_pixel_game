@@ -30,12 +30,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Flip();
-        CheckGrounded();
-        Jump();
-        Run();
-        // Attack();
-        SwitchAnimation();
+        if(GlobalObject.isGameAlive) {
+            Flip();
+            CheckGrounded();
+            Jump();
+            Run();
+            // Attack();
+            SwitchAnimation();
+        }
     }
 
     void Flip(){

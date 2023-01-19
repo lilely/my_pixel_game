@@ -11,13 +11,17 @@ public class PlayerHealth : MonoBehaviour
 
     private Renderer myRender;
     private Animator anim;
+    private ScreenFlash screenFlash;
+    private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
         Health.healthMax = health;
         Health.healthCurrent = health;
         myRender = GetComponent<Renderer>();
+        screenFlash = GetComponent<ScreenFlash>();
         anim = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -30,7 +34,10 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         if(health < 0) health = 0;
         Health.healthCurrent = health;
+        screenFlash.FlashScreen();
         if(health <= 0) {
+            GlobalObject.isGameAlive = false;
+            rb2d.velocity = new Vector2(0,0);
             anim.SetTrigger("dead");
             Invoke("KillPlayer", dieTime);
         } else {

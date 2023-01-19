@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class GlobalObject : MonoBehaviour
 {
+    public static bool isGameAlive = true;
     public static CameraShake cameraShake;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
