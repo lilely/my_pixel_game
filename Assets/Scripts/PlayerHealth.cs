@@ -46,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         } else {
             BlinkPlayer(blinks, time);
         }
+        GlobalObject.cameraShake.Shake();
         pc2d.enabled = false;
         StartCoroutine(HitboxSleep());
     }

@@ -966,7 +966,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d242e36be6f7a41fa98c228d7aaf1998, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -5678,8 +5678,8 @@ MonoBehaviour:
   smoothing: 0.1
   offsetX: 0
   offsetY: 0
-  minPosition: {x: 0, y: 0}
-  maxPosition: {x: 0, y: 0}
+  minPosition: {x: -10, y: 0}
+  maxPosition: {x: 12, y: 5.9}
   target: {fileID: 2019113813}
 --- !u!4 &1667887833
 Transform:
@@ -5689,7 +5689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667887831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9567147, y: 0.2561972, z: 0.1041846}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6104,7 +6104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 1446830689}
   time: 0.05
-  flashColor: {r: 0, g: 0, b: 0, a: 0.3137255}
+  flashColor: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.3137255}
 --- !u!60 &2019113820
 PolygonCollider2D:
   m_ObjectHideFlags: 0
