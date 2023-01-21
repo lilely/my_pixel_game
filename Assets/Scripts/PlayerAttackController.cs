@@ -24,7 +24,7 @@ public class PlayerAttackController : MonoBehaviour
 
     void Attack()
     {
-        if(Input.GetButtonDown("Attack")) {
+        if(Input.GetButtonDown("Attack") && GlobalObject.isGameAlive == true) {
             Debug.Log("Begin attack");
             anim.SetTrigger("attack");
             StartCoroutine(enableHitBox());

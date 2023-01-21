@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6276720241575929159}
   - component: {fileID: 6276720241575929156}
   - component: {fileID: 6276720241575929163}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1755443755
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 76c392273ff12458eaa5eeeb3f8f88e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6276720241633218773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pos0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6276720241968542990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1606583455970056347}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MovingGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
