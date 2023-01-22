@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
     public float jumpSpeed;
     public float doubleJumpSpeed;
+    public float layerRestoreTime;
     private Rigidbody2D myRigidBody;
     private Animator myAnim;
     private BoxCollider2D myFeet;
     private bool isGround;
     private bool canDoubleJump;
+    private bool isOnOneWayPlatform;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,9 @@ public class PlayerController : MonoBehaviour
     void CheckGrounded()
     {
         isGround = myFeet.IsTouchingLayers(LayerMask.GetMask("Ground")) ||
-                    myFeet.IsTouchingLayers(LayerMask.GetMask("MovingPlatform"));
+                    myFeet.IsTouchingLayers(LayerMask.GetMask("MovingPlatform")) ||
+                    myFeet.IsTouchingLayers(LayerMask.GetMask("OnewayPlatform")) ;
+        isOnOneWayPlatform = myFeet.IsTouchingLayers(LayerMask.GetMask("OnewayPlatform"));
     }
 
     // Update is called once per frame
@@ -36,6 +40,7 @@ public class PlayerController : MonoBehaviour
             CheckGrounded();
             Jump();
             Run();
+            CheckOneWayPlatform();
             // Attack();
             SwitchAnimation();
         }
@@ -111,6 +116,23 @@ public class PlayerController : MonoBehaviour
         } else if(isGround) {
             myAnim.SetBool("doublefall",false);
             myAnim.SetBool("idle",true);
+        }
+    }
+
+    void CheckOneWayPlatform() {
+        if(isGround && gameObject.layer != LayerMask.NameToLayer("Player")) {
+            gameObject.layer = LayerMask.NameToLayer("Player");
+        }
+        float vertical = Input.GetAxis("Vertical");
+        if(isOnOneWayPlatform && vertical < -0.1) {
+            gameObject.layer = LayerMask.NameToLayer("OnewayPlatform");
+            Invoke("restorePlayerLayer", layerRestoreTime);
+        }
+    }
+
+    void restorePlayerLayer() {
+        if(!isGround && gameObject.layer != LayerMask.NameToLayer("Player")) {
+            gameObject.layer = LayerMask.NameToLayer("Player");
         }
     }
 }
