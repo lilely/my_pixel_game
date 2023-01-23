@@ -1,6 +1,8 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class CameraFollower : MonoBehaviour
 {
