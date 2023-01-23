@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     public float damage;
     public float flashTime;
     public GameObject bloodEffect;
+    public GameObject GiftItem;
     private SpriteRenderer sr;
     private Color originalColor;
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
     public void Update()
     {
         if(health <= 0) {
+            Instantiate(GiftItem, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

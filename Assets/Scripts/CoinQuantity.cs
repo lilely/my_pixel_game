@@ -8,7 +8,7 @@ public class CoinQuantity : MonoBehaviour
     public Text coinLabel;
     public int coinQuantity;
     // Start is called before the first frame update
-    private int currentCoin;
+    public static int currentCoin;
     void Start()
     {
         currentCoin = coinQuantity;
