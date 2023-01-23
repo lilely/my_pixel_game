@@ -1,6 +1,8 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
     public float doubleJumpSpeed;
     public float layerRestoreTime;
+    public float climbSpeed;
+
     private Rigidbody2D myRigidBody;
     private Animator myAnim;
     private BoxCollider2D myFeet;
@@ -15,12 +19,21 @@ public class PlayerController : MonoBehaviour
     private bool canDoubleJump;
     private bool isOnOneWayPlatform;
 
+    private bool isJumping;
+    private bool isFalling;
+    private bool isDoubleJumping;
+    private bool isDoubleFalling;
+    private bool isClimbing;
+    private bool isOnLadder;
+    private float playerGravity;
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
         myFeet = GetComponent<BoxCollider2D>();
+        playerGravity = myRigidBody.gravityScale;
         canDoubleJump = true;
     }
 
@@ -32,6 +45,11 @@ public class PlayerController : MonoBehaviour
         isOnOneWayPlatform = myFeet.IsTouchingLayers(LayerMask.GetMask("OnewayPlatform"));
     }
 
+    void CheckLadder() 
+    {
+        isOnLadder = myFeet.IsTouchingLayers(LayerMask.GetMask("Ladder"));
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +57,10 @@ public class PlayerController : MonoBehaviour
             Flip();
             CheckGrounded();
             Jump();
+            CheckLadder();
+            CheckLadderState();
             Run();
+            Climb();
             CheckOneWayPlatform();
             // Attack();
             SwitchAnimation();
@@ -85,6 +106,34 @@ public class PlayerController : MonoBehaviour
         myAnim.SetBool("run",playerHasAxisSpeed);
     }
 
+    void Climb()
+    {
+        if(isOnLadder) {
+            float moveY = Input.GetAxis("Vertical");
+            if(moveY < -0.1 || moveY > 0.1) {
+                myAnim.SetBool("climb",true);
+                myAnim.SetBool("jump",false);
+                myAnim.SetBool("doublejump",false);
+                myAnim.SetBool("fall",false);
+                myAnim.SetBool("doublefall",false);
+                myRigidBody.gravityScale = 0.0f;
+                myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, moveY * climbSpeed);
+            } else {
+                if((isJumping || isDoubleJumping || isFalling || isDoubleFalling) && !isClimbing) {
+                    myAnim.SetBool("climb",false);
+                    Debug.Log("Climbing when jumpppppp!!!!!!!!!");
+                } else {
+                    myAnim.SetBool("climb",false);
+                    myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
+                }
+                
+            }
+        } else {
+            myAnim.SetBool("climb",false);
+            myRigidBody.gravityScale = playerGravity;
+        }
+    }
+
     void Attack()
     {
         if(Input.GetButtonDown("Attack")) {
@@ -117,6 +166,14 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("doublefall",false);
             myAnim.SetBool("idle",true);
         }
+    }
+
+    void CheckLadderState() {
+        isJumping = myAnim.GetBool("jump");
+        isFalling = myAnim.GetBool("fall");
+        isDoubleJumping = myAnim.GetBool("doublejump");
+        isDoubleFalling = myAnim.GetBool("doublefall");
+        isClimbing = myAnim.GetBool("climb");
     }
 
     void CheckOneWayPlatform() {
