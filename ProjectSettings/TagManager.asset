@@ -19,8 +19,8 @@ TagManager:
   - Enemy
   - OnewayPlatform
   - Ladder
-  - 
-  - 
+  - Item
+  - Triggerbox
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: Ladder
     uniqueID: 355070485
+    locked: 0
+  - name: Item
+    uniqueID: 2112203243
     locked: 0
   - name: Enemy
     uniqueID: 2866863943
