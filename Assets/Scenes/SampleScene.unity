@@ -2184,6 +2184,10 @@ PrefabInstance:
       propertyPath: GiftItem
       value: 
       objectReference: {fileID: 393312464}
+    - target: {fileID: 2831452314664389077, guid: 7dbebde5f19fe46ea8b35ca657d99c0f, type: 3}
+      propertyPath: FloatPointBase
+      value: 
+      objectReference: {fileID: 8396460104240608953, guid: c081ec7b96b924343b3322db4e10b5ca, type: 3}
     - target: {fileID: 3171143403665935874, guid: 7dbebde5f19fe46ea8b35ca657d99c0f, type: 3}
       propertyPath: m_Name
       value: Bat
@@ -8123,6 +8127,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 2831452314664389077, guid: 7dbebde5f19fe46ea8b35ca657d99c0f, type: 3}
+      propertyPath: GiftItem
+      value: 
+      objectReference: {fileID: 3272510911574137024, guid: 8a54971e5336c4782bc6cdb34d8a0853, type: 3}
+    - target: {fileID: 2831452314664389077, guid: 7dbebde5f19fe46ea8b35ca657d99c0f, type: 3}
+      propertyPath: FloatPointBase
+      value: 
+      objectReference: {fileID: 8396460104240608953, guid: c081ec7b96b924343b3322db4e10b5ca, type: 3}
     - target: {fileID: 3171143403665935874, guid: 7dbebde5f19fe46ea8b35ca657d99c0f, type: 3}
       propertyPath: m_Name
       value: Bat (1)
@@ -8603,7 +8615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d95e3f5dbe804e7f8c45aa857367e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothing: 1
+  smoothing: 0.5
   offsetX: 0
   offsetY: 0
   minPosition: {x: -20, y: 0}
