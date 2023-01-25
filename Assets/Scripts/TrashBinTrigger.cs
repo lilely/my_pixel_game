@@ -13,6 +13,7 @@ public class TrashBinTrigger : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R) && isNearTrashBin) {
             if(CoinQuantity.currentCoin > 0) {
+                AudioManager.playThrowCoinClip();
                 TrashBinCoin.currentTrashBinCoin += 1;
                 CoinQuantity.currentCoin -= 1;
             }

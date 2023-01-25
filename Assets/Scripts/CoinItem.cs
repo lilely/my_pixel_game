@@ -21,6 +21,7 @@ public class CoinItem : MonoBehaviour
         Debug.Log(other.GetType().ToString());
         if(other.gameObject.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CapsuleCollider2D") {
             Debug.Log("Get an coin");
+            AudioManager.playPickCoinClip();
             CoinQuantity.currentCoin += 1;
             Destroy(gameObject);
         }
