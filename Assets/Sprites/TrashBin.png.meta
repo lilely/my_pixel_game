@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7104d7c20fa5f4c529205df159527472
+guid: 6151fb0155af14e68b2f48cde238b8b5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,70 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: HP_MP_Bar_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 23
-        width: 100
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66f63fd51b1b344a6816b710f19f69e6
-      internalID: 944980622
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HP_MP_Bar_1
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 14
-        width: 100
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3abfb4b6673e648f199a5444f98ef71f
-      internalID: -462955421
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HP_MP_Bar_2
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 5
-        width: 100
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b4cf3c819c3849398dc49cc7d2e5d2e
-      internalID: 1452067395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -189,10 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      HP_MP_Bar_2: 1452067395
-      HP_MP_Bar_1: -462955421
-      HP_MP_Bar_0: 944980622
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
