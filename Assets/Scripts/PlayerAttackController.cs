@@ -45,7 +45,7 @@ public class PlayerAttackController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Trigger collider");
+        Debug.Log("Trigger player attack collider");
         if(other.gameObject.CompareTag("Enemy")) {
             Debug.Log("Hit an enemy");
             other.GetComponent<Enemy>().TakeDamage(damage);

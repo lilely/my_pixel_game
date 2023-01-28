@@ -265,6 +265,7 @@ MonoBehaviour:
   flashTime: 0.2
   bloodEffect: {fileID: 9184473938110963886, guid: 213db5bbe402c444294f9622a0ffcb56, type: 3}
   GiftItem: {fileID: 0}
+  FloatPointBase: {fileID: 0}
   leftDownPos: {fileID: 2831452314584963890}
   rightUpPos: {fileID: 2831452314192662142}
   movePos: {fileID: 2831452312962849286}
