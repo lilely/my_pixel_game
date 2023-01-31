@@ -8821,6 +8821,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5236960468885929607, guid: 36e146e80967248ab9e3bca542cedfaf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236960468885929607, guid: 36e146e80967248ab9e3bca542cedfaf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6262090424415057529, guid: 36e146e80967248ab9e3bca542cedfaf, type: 3}
       propertyPath: trashBinPos
       value: 
@@ -8912,6 +8920,10 @@ PrefabInstance:
     - target: {fileID: 6262090424415057534, guid: 36e146e80967248ab9e3bca542cedfaf, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956735425733403891, guid: 36e146e80967248ab9e3bca542cedfaf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e146e80967248ab9e3bca542cedfaf, type: 3}
