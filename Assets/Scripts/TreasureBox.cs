@@ -13,7 +13,7 @@ public class TreasureBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canOpenBox = true;
+        canOpenBox = false;
         opened = false;
         anim = gameObject.GetComponent<Animator>();
     }
