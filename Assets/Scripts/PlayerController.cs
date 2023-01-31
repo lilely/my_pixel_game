@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +25,26 @@ public class PlayerController : MonoBehaviour
     private bool isClimbing;
     private bool isOnLadder;
     private float playerGravity;
+
+    private PlayerInputAction controls;
+    private Vector2 move;
+
+    void Awake(){
+        controls = new PlayerInputAction();
+        controls.GamePlay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.GamePlay.Move.canceled += ctx => move = Vector2.zero;
+
+        controls.GamePlay.Jump.started += ctx => Jump();
+    }
+
+    void OnEnable() {
+        controls.GamePlay.Enable();
+    }
+
+    void onDisable() {
+        controls.GamePlay.Disable();
+    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +75,7 @@ public class PlayerController : MonoBehaviour
         if(GlobalObject.isGameAlive) {
             Flip();
             CheckGrounded();
-            Jump();
+            // Jump();
             CheckLadder();
             CheckLadderState();
             Run();
@@ -79,7 +98,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Jump() {
-        if(Input.GetButtonDown("Jump")) {
+        // if(Input.GetButtonDown("Jump")) {
             if(isGround) {
                 Vector2 jumpVel = new Vector2(0.0f,jumpSpeed);
                 myRigidBody.velocity = Vector2.up * jumpVel;
@@ -94,13 +113,13 @@ public class PlayerController : MonoBehaviour
                     canDoubleJump = false;
                 }
             }
-        }
+        // }
     }
 
     void Run()
     {
         float moveDir = Input.GetAxis("Horizontal");
-        Vector2 playerVel = new Vector2(moveDir * runSpeed, myRigidBody.velocity.y);
+        Vector2 playerVel = new Vector2(move.x * runSpeed, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVel;
         bool playerHasAxisSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
         myAnim.SetBool("run",playerHasAxisSpeed);

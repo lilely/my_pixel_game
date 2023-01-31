@@ -6,6 +6,21 @@ using UnityEngine;
 public class DoorToNextScene : MonoBehaviour
 {
     private bool canOpenDoor;
+
+    private PlayerInputAction controls;
+
+    void Awake() {
+        controls = new PlayerInputAction();
+        controls.GamePlay.Enter.started += ctx => OpenTheDoor();
+    }
+
+    void OnEnable() {
+        controls.GamePlay.Enable();
+    }
+
+    void OnDisable() {
+        controls.GamePlay.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +30,13 @@ public class DoorToNextScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canOpenDoor) {
-            if(Input.GetKeyDown(KeyCode.I)) {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-        }
         
+    }
+
+    void OpenTheDoor() {
+        if(canOpenDoor) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {

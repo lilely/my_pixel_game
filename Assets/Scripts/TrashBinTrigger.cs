@@ -5,13 +5,31 @@ using UnityEngine;
 public class TrashBinTrigger : MonoBehaviour
 {
     private bool isNearTrashBin;
+    private PlayerInputAction controls;
+
+    void Awake() {
+        controls = new PlayerInputAction();
+        controls.GamePlay.Enter.started += ctx => ThrowCoin();
+    }
+
+    void OnEnable() {
+        controls.GamePlay.Enable();
+    }
+
+    void OnDisable() {
+        controls.GamePlay.Disable();
+    }
     // Start is called before the first frame update
     void Start() {
 
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && isNearTrashBin) {
+
+    }
+
+    void ThrowCoin() {
+        if(isNearTrashBin) {
             if(CoinQuantity.currentCoin > 0) {
                 AudioManager.playThrowCoinClip();
                 TrashBinCoin.currentTrashBinCoin += 1;

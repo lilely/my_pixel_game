@@ -9,6 +9,20 @@ public class PlayerAttackController : MonoBehaviour
     public float prepareInterval;
     private Animator anim;
     private PolygonCollider2D myCollider;
+    private PlayerInputAction controls;
+
+    void Awake() {
+        controls = new PlayerInputAction();
+        controls.GamePlay.Attack.started += ctx => Attack();
+    }
+
+    void OnEnable() {
+        controls.GamePlay.Enable();
+    }
+
+    void OnDisable() {
+        controls.GamePlay.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +33,16 @@ public class PlayerAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Attack();
+        // Attack();
     }
 
     void Attack()
     {
-        if(Input.GetButtonDown("Attack") && GlobalObject.isGameAlive == true) {
+        // if(Input.GetButtonDown("Attack") && GlobalObject.isGameAlive == true) {
             Debug.Log("Begin attack");
             anim.SetTrigger("attack");
             StartCoroutine(enableHitBox());
-        }
+        // }
     }
 
     IEnumerator enableHitBox() 
