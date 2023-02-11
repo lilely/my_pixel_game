@@ -71,6 +71,15 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ArrowHit"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbd3d716-b195-45ba-a2b6-af3be4828b29"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -392,6 +401,17 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""Enter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93faa9ab-57a6-4321-b0e0-bf7868291256"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ArrowHit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -416,6 +436,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         m_GamePlay_Attack = m_GamePlay.FindAction("Attack", throwIfNotFound: true);
         m_GamePlay_SpecalAttack = m_GamePlay.FindAction("SpecalAttack", throwIfNotFound: true);
         m_GamePlay_Enter = m_GamePlay.FindAction("Enter", throwIfNotFound: true);
+        m_GamePlay_ArrowHit = m_GamePlay.FindAction("ArrowHit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -480,6 +501,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlay_Attack;
     private readonly InputAction m_GamePlay_SpecalAttack;
     private readonly InputAction m_GamePlay_Enter;
+    private readonly InputAction m_GamePlay_ArrowHit;
     public struct GamePlayActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -489,6 +511,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_GamePlay_Attack;
         public InputAction @SpecalAttack => m_Wrapper.m_GamePlay_SpecalAttack;
         public InputAction @Enter => m_Wrapper.m_GamePlay_Enter;
+        public InputAction @ArrowHit => m_Wrapper.m_GamePlay_ArrowHit;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -513,6 +536,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @Enter.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnEnter;
                 @Enter.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnEnter;
                 @Enter.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnEnter;
+                @ArrowHit.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnArrowHit;
+                @ArrowHit.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnArrowHit;
+                @ArrowHit.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnArrowHit;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -532,6 +558,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @Enter.started += instance.OnEnter;
                 @Enter.performed += instance.OnEnter;
                 @Enter.canceled += instance.OnEnter;
+                @ArrowHit.started += instance.OnArrowHit;
+                @ArrowHit.performed += instance.OnArrowHit;
+                @ArrowHit.canceled += instance.OnArrowHit;
             }
         }
     }
@@ -561,5 +590,6 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnSpecalAttack(InputAction.CallbackContext context);
         void OnEnter(InputAction.CallbackContext context);
+        void OnArrowHit(InputAction.CallbackContext context);
     }
 }
