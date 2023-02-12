@@ -116,9 +116,9 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.85
-    functionName: 
+    functionName: StartDisappear
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 051239fcd5c9c4990a477bbd63ab82f8, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
